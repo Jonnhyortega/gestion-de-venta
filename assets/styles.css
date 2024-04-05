@@ -1,0 +1,45 @@
+:root {
+  --labelBC: rgb(253, 253, 37);
+  --labelVisited: rgb(9, 201, 9);
+  --fontColor: black;
+  --bodyColor: rgb(1, 1, 1);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 1rem;
+}
+/* AGREGAR CLIENTE */
+#agendar-cliente {
+  border: 1px solid black;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 0.5rem;
+  width: 20%;
+  float: right;
+}
+
+input[type="submit"] {
+  width: 50%;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+#label-documentacion,
+#label-vp {
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+/* AGREGAR CLIENTE */
+
+/* <!-- CONTADOR DE VENTAS CON CALENDARIO --> */
+
+/* <!-- CONTADOR DE VENTAS CON CALENDARIO --> */

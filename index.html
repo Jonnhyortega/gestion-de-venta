@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestion</title>
+  </head>
+  <body>
+    <header>
+      <h1>Sistema de gestión</h1>
+    </header>
+    <!-- CONTADOR DE VENTAS CON CALENDARIO -->
+        <div id="contador-ventas">
+            <div class="dia">
+                <span></span><span></span>
+            </div>
+        </div>
+    <!-- CONTADOR DE VENTAS CON CALENDARIO -->
+    <!-- GESTOR DE TAREAS  -->
+    <!-- AGREGAR CLIENTE -->
+    <div id="contenedor-gestor">
+      <form action="" id="agendar-cliente">
+        <h3>Agregar cliente</h3>
+        <input id="name" type="text" placeholder="Ingrese nombre del cliente" />
+        <input id="phone" type="number" placeholder="Telefono" />
+        <label for="car">Seleccione auto</label>
+        <select id="car" type="text" placeholder="Auto de interes">
+          hola
+          <option value="" disabled>Elegir auto</option>
+          <option value="SURAN">Suran</option>
+          <option value="VOYAGE">Voyage</option>
+          <option value="PUNTO">Punto</option>
+          <option value="PALIO">Palio</option>
+          <option value="C4">C4 Lounge</option>
+          <option value="207">Peugeot 207</option>
+          <option value="308">Peugeot 308</option>
+          <option value="PARTNER">Partner</option>
+          <option value="CLIO">Clio</option>
+          <option value="FOCUS">FOCUS</option>
+          <option value="CORSAS 2016">CORSA 2016</option>
+          <option value="PRISMA">PRISMA</option>
+          <option value="SPIN">SPIN</option>
+        </select>
+        <label id="label-vp" for="vp"
+          >Verificacion de perfil
+          <input id="vp" type="checkbox" />
+        </label>
+        <label id="label-documentacion" for="documentacion">Documentación</label>
+          <select name="documentacion" id="documentacion">
+            <option value="recibo">Recibo de sueldo</option>
+            <option value="monotributo">monotributo</option>
+            <option value="jubilacion">Jubilacion</option>
+            <option value="pension">Pensión</option>
+          </select>
+
+        <label for="observaciones">
+          Ingrese alguna observación a indicar al vendedor.
+          <textarea
+            name="observaciones"
+            id="observaciones"
+            cols="30"
+            rows="10"
+          >
+          </textarea>
+        </label>
+
+        <input type="submit" />
+      </form>
+    </div>
+    <!-- AGREGAR CLIENTE -->
+    <!-- GESTOR DE TAREAS  -->
+    <!-- AGENDA DE CLIENTES -->
+    <!-- nombre, numero de telefono, auto de interes, estado 
+        de la visita, observaciones para mencionar horario -->
+    <!-- AGENDA DE CLIENTES -->
+
+    <script src="assets/app.js"></script>
+  </body>
+</html>
