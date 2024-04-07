@@ -8,13 +8,19 @@ const documentacion = document.querySelector("#documentacion");
 const observaciones = document.querySelector("#observaciones");
 const containerClients = document.querySelector("#container-clients");
 // FORM VARIABLES
-
+// ####################################################################
+// SEARCH CLIENT VARIABLES
+let searchClientPhone = document.querySelector("#search-client");
+let btnSearch = document.querySelector("#btn-search");
+let btnReset = document.querySelector("#btn-reset-search");
+// SEARCH CLIENT VARIABLES
+// ####################################################################
 // DATA
 let carteraDeClientes = JSON.parse(localStorage.getItem("cartera")) || [];
 console.log(carteraDeClientes);
-let bussinesClosed = JSON.parse(localStorage.getItem("ventas cerradas")) || [];
 // DATA
-
+// ####################################################################
+// FUNCTIONS
 // FUNCTION TO SAVED DATA CLIENTS IN LOCAL STORAGE
 const saveCustomerLs = () => {
   localStorage.setItem("cartera", JSON.stringify(carteraDeClientes));
@@ -42,46 +48,7 @@ const pushCartera = () => {
   }
 };
 
-// FUNCTIONS TO RENDER CLIENTE IN CALENDAR
-const containerData = document.querySelector(".container-data");
-const createMonth = () => {
-  containerData.innerHTML = `
-  <div id="month">
-  <ul id="week1">
-    <li id="day1"></li>
-    <li id="day2"></li>
-    <li id="day3"></li>
-    <li id="day4"></li>
-    <li id="day5"></li>
-    <li id="day6"></li>
-  </ul>
-  <ul id="week2">
-    <li id="day1"></li>
-    <li id="day2"></li>
-    <li id="day3"></li>
-    <li id="day4"></li>
-    <li id="day5"></li>
-    <li id="day6"></li>
-  </ul>
-  <ul id="week3">
-    <li id="day1"></li>
-    <li id="day2"></li>
-    <li id="day3"></li>
-    <li id="day4"></li>
-    <li id="day5"></li>
-    <li id="day6"></li>
-  </ul>
-  <ul id="week4">
-    <li id="day1"></li>
-    <li id="day2"></li>
-    <li id="day3"></li>
-    <li id="day4"></li>
-    <li id="day5"></li>
-    <li id="day6"></li>
-  </ul>
-</div>
-  `;
-};
+
 
 // FUNCION TO RENDER TOTAL CLIENTS
 const renderTotalClients = () => {
@@ -90,11 +57,11 @@ const renderTotalClients = () => {
     containerClients.innerHTML += `
       <div id="client">
         <p>${cliente.name}</p>
+        <button class='btn-agendar btn-client'>Agendar</button>
+        <button class='btn-closed-bussines btn-client' data-id="${cliente.phone}">B.Closed</button>
         <p>${cliente.phone}</p>
         <p>${cliente.car}</p>
         <p>${cliente.documentacion}</p>
-        <button class='btn-agendar btn-client'>Agendar</button>
-        <button class='btn-closed-bussines btn-client' data-id="${cliente.phone}">B.Closed</button>
       </div>
     `;
   });
@@ -108,42 +75,63 @@ const renderTotalClients = () => {
 
 // FUNCTION TO MARK AS CLOSED BUSINESS
 const markToClosedBussines = () => {};
-//RENDER CLIENTS WHEN DOM LOADED
+
+// FUNCTION TO RESET CONTAINERCLIENTS
+const resetContainer = () => {
+  containerClients.innerHTML = "";
+  renderTotalClients();
+};
+// ####################################################################
+
+//INIT
 document.addEventListener("DOMContentLoaded", () => {
   renderTotalClients();
-});
 
-// PUSH CLIENTE IN CARTERA
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  pushCartera();
-  renderTotalClients();
-  saveCustomerLs();
-});
-
-// SEARCHC CLIENT
-let searchClientPhone = document.querySelector("#search-client");
-let btnSearch = document.querySelector("#btn-search");
-const searchClient = () => {
-  phoneSearch = searchClientPhone.value;
-  let clientFound = carteraDeClientes.find(
-    (cliente) => cliente.phone == phoneSearch
-  );
-  if (searchClientPhone.value == "") {
+  // PUSH CLIENTE IN CARTERA
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    pushCartera();
     renderTotalClients();
-  } else {
-    containerClients.innerHTML = " ";
-    containerClients.innerHTML += `
-      <div id="client">
-        <p>${clientFound.name}</p>
-        <p>${clientFound.phone}</p>
-        <p>${clientFound.car}</p>
-        <p>${clientFound.documentacion}</p>
-        <button>Agendar</button>
-        <button>B.Closed</button>
-      </div>
-    `;
-  }
-};
+    saveCustomerLs();
+    form.reset();
+  });
 
-btnSearch.addEventListener("click", searchClient);
+  // RESET CONTAINER CLIENTS
+  btnReset.addEventListener("click", () => {
+    resetContainer();
+    searchClientPhone.value = "";
+  });
+
+  // FUNCTION TO SEARCH
+  btnSearch.addEventListener("click", () => {
+    const phoneSearch = searchClientPhone.value;
+    const clientFound = carteraDeClientes.find(
+      (cliente) => cliente.phone === phoneSearch
+    );
+
+    if (clientFound) {
+      console.log("Se encontro el cliente");
+      containerClients.innerHTML = `
+         <div id="client">
+           <p>${clientFound.name}</p>
+           <p>${clientFound.phone}</p>
+           <p>${clientFound.car}</p>
+           <p>${clientFound.documentacion}</p>
+           <button>Agendar</button>
+           <button>B.Closed</button>
+         </div>
+      `;
+      console.log(clientFound);
+    } else if (phoneSearch === "" || !clientFound) {
+      containerClients.innerHTML = `
+          <p>No se encontraron resultados</p>
+      `;
+    }
+  });
+
+  searchClientPhone.addEventListener("input", ()=>{
+    if(searchClientPhone.value == ""){
+      renderTotalClients();
+    }
+  })
+});

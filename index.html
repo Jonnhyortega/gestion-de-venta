@@ -10,11 +10,37 @@
     <header>
       <h1>Sistema de gestión</h1>
       <ul>
-        <li>Agregar cliente</li>
-        <li>Agendar cliente</li>
+        <li><a href="#contenedor-gestor">Agregar cliente</a></li>
+        <li><a href="#container-clients">Cartera de clientes</a></li>
       </ul>
     </header>
-    <div id="contenedor-gestor">
+   
+    <!-- CONTADOR DE VENTAS CON CALENDARIO -->
+    <section id="container-data">
+      <div id="month">
+        <h4>${month.month}</h4>
+        <div class="week1"></div>
+        <div class="week2"></div>
+        <div class="week3"></div>
+        <div class="week4"></div>
+        <div class="week5"></div>
+      </div>
+    </section>
+    <!-- CONTADOR DE VENTAS CON CALENDARIO -->
+
+
+
+    <div id="container-search-client">
+      <h3>CARTERA CLIENTES</h3>
+      <p>Buscar por número de teléfono</p>
+      <input id="search-client" type="search">
+      <button id="btn-search">Buscar</button>
+      <button id="btn-reset-search">Reset</button>
+    </div>
+    <div id="container-clients">
+    </div>
+    <!-- LISTA CLIENTES -->
+    <div id="container-gestor">
       <form action="" id="agendar-cliente">
         <h3>Agregar cliente</h3>
         <input id="name" type="text" placeholder="Ingrese nombre del cliente" />
@@ -46,7 +72,7 @@
         >
         <select name="documentacion" id="documentacion">
           <option value="recibo">Recibo de sueldo</option>
-          <option value="monotributo">monotributo</option>
+          <option value="monotributo">Monotributo</option>
           <option value="jubilacion">Jubilacion</option>
           <option value="pension">Pensión</option>
         </select>
@@ -59,31 +85,65 @@
 
         <input type="submit" />
       </form>
-    </div>
-    <!-- CONTADOR DE VENTAS CON CALENDARIO -->
-    <section class="container-data"></section>
-    <!-- CONTADOR DE VENTAS CON CALENDARIO -->
-    <!-- LISTA CLIENTES -->
-   
-    <div id="container-search-client">
-      <h3>CLIENTES</h3>
-      <p>Buscar por numero de telefono</p>
-      <input id="search-client" type="search">
-      <button id="btn-search">Buscar</button>
-    </div>
-    <div id="container-clients">
-    </div>
-    <!-- LISTA CLIENTES -->
-    <!-- GESTOR DE TAREAS  -->
-    <!-- AGREGAR CLIENTE -->
 
-    <!-- AGREGAR CLIENTE -->
-    <!-- GESTOR DE TAREAS  -->
-    <!-- AGENDA DE CLIENTES -->
-    <!-- nombre, numero de telefono, auto de interes, estado 
-        de la visita, observaciones para mencionar horario -->
-    <!-- AGENDA DE CLIENTES -->
+
+
+      <form  id="add-month">
+        <h3>Agregar mes de trabajo</h3>
+        <!--  -->
+        <label for="year">Año</label>
+        <input id="year" type="number">
+        <!--  -->
+        <label for="name-month">Mes</label>
+        <select name="name-month" id="name-month">
+          <option value="Enero">Enero</option>
+          <option value="Febrero">Febrero</option>
+          <option value="Marzo">Marzo</option>
+          <option value="Abril">Abril</option>
+          <option value="Mayo">Mayo</option>
+          <option value="Junio">Junio</option>
+          <option value="Julio">Julio</option>
+          <option value="Agosto">Agosto</option>
+          <option value="Septiembre">Septiembre</option>
+          <option value="Octubre">Octubre</option>
+          <option value="Noviembre">Noviembre</option>
+          <option value="Diciembre">Diciembre</option>
+        </select>
+        <!--  -->
+        <label for="weeks">Semanas de trabajo</label>
+        <select id="weeks-totals" name="weeks" id="weeks">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <!--  -->
+        <div id="weeks-total-days">
+          <label for="week1">Semana 1</label>
+          <input id="week1" type="number">
+          <!--  -->
+          <label for="week2">Semana 2</label>
+          <input id="week2" type="number">
+          <!--  -->
+          <label for="week3">Semana 3</label>
+          <input id="week3" type="number">
+          <!--  -->
+          <label for="week4">Semana 4</label>
+          <input id="week4" type="number">
+          <!--  -->
+          <label for="week5">Semana 5</label>
+          <input id="week5" type="number">
+        </div>
+        <!--  -->
+        <label for="fechaCreacion">Fecha de creacion</label>
+        <input name="fechaCreacion" type="date">
+        <!--  -->
+        <input type="submit">
+      </form>
+    </div>
 
     <script src="assets/app.js"></script>
+    <script src="assets/month.js"></script>
   </body>
 </html>
