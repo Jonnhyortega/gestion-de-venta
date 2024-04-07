@@ -23,7 +23,6 @@ body {
   align-items: left;
   gap: 0.5rem;
   width: 20%;
-  float: right;
 }
 
 input[type="submit"] {
@@ -41,5 +40,53 @@ input[type="submit"] {
 /* AGREGAR CLIENTE */
 
 /* <!-- CONTADOR DE VENTAS CON CALENDARIO --> */
+#month{
+  width: 100%;
+  border: 1px solid black;
+}
+.week {
+  border: 1px solid black;
+  width: 100%;
+}
 
 /* <!-- CONTADOR DE VENTAS CON CALENDARIO --> */
+
+/* BASE DE DATOS CLIENTES */
+#container-search-client {
+  background-color: rgb(255, 47, 47);
+  padding: .5rem;
+}
+
+#container-clients{
+  width: 100%;
+  max-height: 200px;
+  border: 1px solid black;
+  overflow-y: scroll;
+  padding: .5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+
+#client {
+  display: flex;
+  gap: 1rem;
+  border: 1px solid black;
+  align-items: center;
+  justify-content: center;
+}
+
+#client p{
+  width: 6rem;
+  border-left: 1px solid black;
+}
+
+.bussinesClosed {
+  background-color: gold;
+}
+
+.btn-client{
+  max-height: 20px;
+  cursor: pointer;
+}
+/* BASE DE DATOS CLIENTES */

@@ -9,16 +9,11 @@
   <body>
     <header>
       <h1>Sistema de gestión</h1>
+      <ul>
+        <li>Agregar cliente</li>
+        <li>Agendar cliente</li>
+      </ul>
     </header>
-    <!-- CONTADOR DE VENTAS CON CALENDARIO -->
-        <div id="contador-ventas">
-            <div class="dia">
-                <span></span><span></span>
-            </div>
-        </div>
-    <!-- CONTADOR DE VENTAS CON CALENDARIO -->
-    <!-- GESTOR DE TAREAS  -->
-    <!-- AGREGAR CLIENTE -->
     <div id="contenedor-gestor">
       <form action="" id="agendar-cliente">
         <h3>Agregar cliente</h3>
@@ -46,28 +41,42 @@
           >Verificacion de perfil
           <input id="vp" type="checkbox" />
         </label>
-        <label id="label-documentacion" for="documentacion">Documentación</label>
-          <select name="documentacion" id="documentacion">
-            <option value="recibo">Recibo de sueldo</option>
-            <option value="monotributo">monotributo</option>
-            <option value="jubilacion">Jubilacion</option>
-            <option value="pension">Pensión</option>
-          </select>
+        <label id="label-documentacion" for="documentacion"
+          >Documentación</label
+        >
+        <select name="documentacion" id="documentacion">
+          <option value="recibo">Recibo de sueldo</option>
+          <option value="monotributo">monotributo</option>
+          <option value="jubilacion">Jubilacion</option>
+          <option value="pension">Pensión</option>
+        </select>
 
         <label for="observaciones">
           Ingrese alguna observación a indicar al vendedor.
-          <textarea
-            name="observaciones"
-            id="observaciones"
-            cols="30"
-            rows="10"
-          >
+          <textarea name="observaciones" id="observaciones" cols="30" rows="10">
           </textarea>
         </label>
 
         <input type="submit" />
       </form>
     </div>
+    <!-- CONTADOR DE VENTAS CON CALENDARIO -->
+    <section class="container-data"></section>
+    <!-- CONTADOR DE VENTAS CON CALENDARIO -->
+    <!-- LISTA CLIENTES -->
+   
+    <div id="container-search-client">
+      <h3>CLIENTES</h3>
+      <p>Buscar por numero de telefono</p>
+      <input id="search-client" type="search">
+      <button id="btn-search">Buscar</button>
+    </div>
+    <div id="container-clients">
+    </div>
+    <!-- LISTA CLIENTES -->
+    <!-- GESTOR DE TAREAS  -->
+    <!-- AGREGAR CLIENTE -->
+
     <!-- AGREGAR CLIENTE -->
     <!-- GESTOR DE TAREAS  -->
     <!-- AGENDA DE CLIENTES -->
