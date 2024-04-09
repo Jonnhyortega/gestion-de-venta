@@ -53,7 +53,8 @@ const renderMonth = (month) => {
   monthDiv.appendChild(monthName);
   // create MONTH NAME
   // ---------------
-  // create WEEKS DIVS
+  
+// create WEEKS DIVS
   // WEEK1
   let week1 = document.createElement('div');
     week1.id = "week1";
@@ -104,7 +105,6 @@ const renderMonth = (month) => {
     var pElement = document.createElement('p');
     pElement.textContent = 'Day ' + (i + 1);
     pElement.classList.add('days');
-
     week1.appendChild(pElement);
 }
 
@@ -112,7 +112,6 @@ for (let i = 0; i < month.week2; i++) {
   var pElement = document.createElement('p');
   pElement.textContent = 'Day ' + (i + 1);
   pElement.classList.add('days');
-
   week2.appendChild(pElement);
 }
 
@@ -120,7 +119,6 @@ for (let i = 0; i < month.week3; i++) {
   var pElement = document.createElement('p');
   pElement.textContent = 'Day ' + (i + 1);
   pElement.classList.add('days');
-
   week3.appendChild(pElement);
 }
 
@@ -142,11 +140,17 @@ for (let i = 0; i < month.week5; i++) {
 containerData.appendChild(monthDiv);
 };
 
-renderMonth(monthsData[0]);
 
+renderMonth(monthsData[2]);
 
 // FUNCTION TO RENDER MONTH
 formAddMonth.addEventListener("submit", (e) => {
   e.preventDefault();
   createMonth();
 });
+
+
+
+// CODIGO DE PRUEBA!
+
+
