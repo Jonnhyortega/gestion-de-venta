@@ -14,24 +14,31 @@
         <li><a href="#container-clients">Cartera de clientes</a></li>
       </ul>
     </header>
-   
+
     <!-- CONTADOR DE VENTAS CON CALENDARIO -->
     <section id="container-data">
-      <h3>MES ACTUAL</h3>
+      <h3 id="mostrar-mes"></h3>
+      <div id="container-btn-data">
+        <button onclick="currentMonth">Mes actual</button>
+        <button onclick="everyMonth">Todos los meses</button>
+        <div id="container-search-data">
+          <button onclick="searchMonth">Buscar</button>
+          <input id="search-input" type="search">
+        </div>
+      </div>
+      <div id="rendered-month" class="month">
+      </div>
     </section>
     <!-- CONTADOR DE VENTAS CON CALENDARIO -->
-
-
 
     <div id="container-search-client">
       <h3>CARTERA CLIENTES</h3>
       <p>Buscar por número de teléfono</p>
-      <input id="search-client" type="search">
+      <input id="search-client" type="search" />
       <button id="btn-search">Buscar</button>
       <button id="btn-reset-search">Reset</button>
     </div>
-    <div id="container-clients">
-    </div>
+    <div id="container-clients"></div>
     <!-- LISTA CLIENTES -->
     <div id="container-gestor">
       <form action="" id="agendar-cliente">
@@ -79,13 +86,11 @@
         <input type="submit" />
       </form>
 
-
-
-      <form  id="add-month">
+      <form id="add-month">
         <h3>Agregar mes de trabajo</h3>
         <!--  -->
         <label for="year">Año</label>
-        <input id="year" type="number">
+        <input id="year" type="number" />
         <!--  -->
         <label for="name-month">Mes</label>
         <select name="name-month" id="name-month">
@@ -103,40 +108,51 @@
           <option value="Diciembre">Diciembre</option>
         </select>
         <!--  -->
-        <label for="weeks">Semanas de trabajo</label>
-        <select id="weeks-totals" name="weeks" id="weeks">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-        <!--  -->
-        <div id="weeks-total-days">
-          <label for="week1">Semana 1</label>
-          <input id="week1" type="number">
-          <!--  -->
-          <label for="week2">Semana 2</label>
-          <input id="week2" type="number">
-          <!--  -->
-          <label for="week3">Semana 3</label>
-          <input id="week3" type="number">
-          <!--  -->
-          <label for="week4">Semana 4</label>
-          <input id="week4" type="number">
-          <!--  -->
-          <label for="week5">Semana 5</label>
-          <input id="week5" type="number">
-        </div>
-        <!--  -->
         <label for="fechaCreacion">Fecha de creacion</label>
-        <input name="fechaCreacion" type="date">
+        <input name="fechaCreacion" type="date" id="fechaCreacion" />
         <!--  -->
-        <input type="submit">
+        <input type="submit" />
       </form>
+
+      <div class="overlay-agendar-cliente">
+        <form id="form-agendar-cliente" action="">
+          <h3>Agendar cliente</h3>
+          <label for="choose-week">Elegir n° semana</label>
+          <select id="choose-week" name="choose-week">
+            <option value="semana-1">Semana 1</option>
+            <option value="semana-2">Semana 2</option>
+            <option value="semana-3">Semana 3</option>
+            <option value="semana-4">Semana 4</option>
+            <option value="semana-5">Semana 5</option>
+          </select>
+          <!--  -->
+          <label for="choose-day">Elegir n° de dia</label>
+          <select name="choose-day" id="choose-day">
+            <option value="dia-1">Dia 1</option>
+            <option value="dia-2">Dia 2</option>
+            <option value="dia-3">Dia 3</option>
+            <option value="dia-4">Dia 4</option>
+            <option value="dia-5">Dia 5</option>
+            <option value="dia-6">Dia 6</option>
+          </select>
+          <label for="choose-hour">Elegir horario</label>
+          <select name="choose-hour" id="choose-hour">
+            <option value="11">11:00 hs</option>
+            <option value="12">12:00 hs</option>
+            <option value="13">13:00 hs</option>
+            <option value="14">14:00 hs</option>
+            <option value="15">15:00 hs</option>
+            <option value="16">16:00 hs</option>
+            <option value="17">17:00 hs</option>
+            <option value="18">18:00 hs</option>
+            <option value="19">19:00 hs</option>
+          </select>
+          <input type="submit" />
+        </form>
+      </div>
     </div>
 
     <script src="assets/app.js"></script>
-    <script src="assets/month.js"></script>
+    <script src="assets/diary.js"></script>
   </body>
 </html>
