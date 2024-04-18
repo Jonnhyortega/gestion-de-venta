@@ -146,12 +146,13 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
     }
   });
-
   searchClientPhone.addEventListener("input", () => {
     if (searchClientPhone.value == "") {
       renderTotalClients();
     }
   });
+  // RENDER MONTHS
+  renderAllMonths();
 });
 
 const overlayAgendarcliente = document.querySelector(

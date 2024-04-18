@@ -96,14 +96,19 @@ input[type="submit"] {
 }
 /* ADD MONTH */
 
-/* <!-- CONTADOR DE VENTAS CON CALENDARIO --> */
 
+
+
+
+/* <!-- CONTADOR DE VENTAS CON CALENDARIO --> */
 #rendered-month {
   border: 1px solid black;
   width: 100%;
-  background-color: gold;
   display: grid;
-  gap: 1rem;
+}
+
+.week{
+  background-color: red;
 }
 
 .days {
@@ -113,7 +118,17 @@ input[type="submit"] {
   background-color: red;
 }
 
+.month-data {
+   display: flex;
+   gap: 1rem;
+   border: 1px solid white;
+   color: white;
+}
+
 /* <!-- CONTADOR DE VENTAS CON CALENDARIO --> */
+
+
+
 
 /* CARTERA CLIENTES */
 #container-search-client {

@@ -7,20 +7,21 @@ const week2 = document.getElementById("week2");
 const week3 = document.getElementById("week3");
 const week4 = document.getElementById("week4");
 const week5 = document.getElementById("week5");
-const fechaCreacionInput = document.getElementById('fechaCreacion');
+const fechaCreacionInput = document.getElementById("fechaCreacion");
 const submitButton = document.querySelector('input[type="submit"]');
 const containerData = document.querySelector("#container-data");
-const renderedMonth = document.getElementById('rendered-month');
-const showMonth = document.getElementById('mostrar-mes');
+const renderedMonth = document.getElementById("rendered-month");
+const showMonth = document.getElementById("mostrar-mes");
+const btnRenderAllMonths = document.querySelector("#btn-renderAllMonths");
+const btnRenderCurrentMonth = document.querySelector("#btn-renderCurrentMonth");
 let mesesDeTrabajo = JSON.parse(localStorage.getItem("mesesDeTrabajo")) || [];
 
-/** FUNCTION TO SAVE DATA IN LOCAL STORAGE*/ 
+/** FUNCTION TO SAVE DATA IN LOCAL STORAGE*/
 const saveMesesDeTrabajo = () => {
   localStorage.setItem("mesesDeTrabajo", JSON.stringify(mesesDeTrabajo));
 };
 
-
-/**FUNCTION TO CREATE MONTH */ 
+/**FUNCTION TO CREATE MONTH */
 const createMonth = () => {
   let month = {
     year: yearInput.value,
@@ -31,124 +32,115 @@ const createMonth = () => {
     semana4: ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
     semana5: ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
     operacionesTotales: null,
-    id: Date.now()
+    id: Date.now(),
   };
   mesesDeTrabajo.push(month);
   saveMesesDeTrabajo();
 };
 
-/** FUNCTION TO RENDER MONTH */ 
-const renderMonths = (month) => {
+/** FUNCTION TO RENDER current MONTH */
+const lastMonth = mesesDeTrabajo[mesesDeTrabajo.length - 1];
+semana1 = lastMonth.semana1;
+semana2 = lastMonth.semana2;
+semana3 = lastMonth.semana3;
+semana4 = lastMonth.semana4;
+semana5 = lastMonth.semana5;
+const renderCurrentMonth = (lastMonth) => {
+  renderedMonth.innerHTML = "";
 
-    semana1 = month.semana1;
-    semana2 = month.semana2;
-    semana3 = month.semana3;
-    semana4 = month.semana4;
-    semana5 = month.semana5;
-    console.log(semana1);
+  // WEEK 1
+  weekDiv1 = document.createElement("div");
+  weekDiv1.classList.add(".week");
+  weekDiv1.textContent = "Semana 1";
+  renderedMonth.appendChild(weekDiv1);
+  semana1.forEach((dia) => {
+    let day = document.createElement("p");
+    day.classList.add("days");
+    day.textContent = `${dia}`;
 
-    weekDiv1 = document.createElement('div');
-    weekDiv1.textContent = 'Semana 1';
-    renderedMonth.appendChild(weekDiv1);
+    weekDiv1.appendChild(day);
+  });
+  // -----------------------------
 
-    semana1.forEach(dia => {
-        let divWeek = document.createElement('div');
-        divWeek.classList.add('week');
-        
-        let day = document.createElement('p');
-        day.classList.add('days');
-        day.textContent = `${dia}`
+  // WEEK 2
+  weekDiv2 = document.createElement("div");
+  weekDiv2.textContent = "Semana 2";
+  weekDiv2.classList.add(".week");
+  renderedMonth.appendChild(weekDiv2);
+  semana2.forEach((dia) => {
+    let day = document.createElement("p");
+    day.classList.add("days");
+    day.textContent = `${dia}`;
 
-        weekDiv1.appendChild(divWeek);
-        divWeek.appendChild(day);
-    });
+    weekDiv2.appendChild(day);
+  });
+  // ----------------------------
 
+  // WEEK 3
+  weekDiv3 = document.createElement("div");
+  weekDiv3.classList.add(".week");
+  weekDiv3.textContent = "Semana 3";
+  renderedMonth.appendChild(weekDiv3);
+  semana3.forEach((dia) => {
+    let day = document.createElement("p");
+    day.classList.add("days");
+    day.textContent = `${dia}`;
 
-    weekDiv2 = document.createElement('div');
-    weekDiv2.textContent = 'Semana 2';
-    renderedMonth.appendChild(weekDiv2);
+    weekDiv3.appendChild(day);
+  });
+  // -----------------------------------
 
-    semana2.forEach(dia => {
-        let divWeek = document.createElement('div');
-        divWeek.classList.add('week');
-        
+  // WEEK 4
+  weekDiv4 = document.createElement("div");
+  weekDiv4.classList.add(".week");
+  weekDiv4.textContent = "Semana 4";
+  renderedMonth.appendChild(weekDiv4);
+  semana4.forEach((dia) => {
+    let day = document.createElement("p");
+    day.classList.add("days");
+    day.textContent = `${dia}`;
 
-        let day = document.createElement('p');
-        day.classList.add('days');
+    weekDiv4.appendChild(day);
+  });
+  // ---------------------------------
+  // week 5
+  weekDiv5 = document.createElement("div");
+  weekDiv5.classList.add(".week");
+  weekDiv5.textContent = "Semana 5";
+  renderedMonth.appendChild(weekDiv5);
+  semana5.forEach((dia) => {
+    let day = document.createElement("p");
+    day.classList.add("days");
+    day.textContent = `${dia}`;
 
-        day.textContent = `${dia}`
-
-        renderedMonth.appendChild(divWeek);
-        weekDiv2.appendChild(day);
-    });
-
-
-    weekDiv3 = document.createElement('div');
-    weekDiv3.textContent = 'Semana 3';
-    renderedMonth.appendChild(weekDiv3);
-    semana3.forEach(dia => {
-        let divWeek = document.createElement('div');
-        divWeek.classList.add('week');
-        
-
-        let day = document.createElement('p');
-        day.classList.add('days');
-
-        day.textContent = `${dia}`
-
-        renderedMonth.appendChild(divWeek);
-        weekDiv3.appendChild(day);
-    });
-
-
-    weekDiv4 = document.createElement('div');
-    weekDiv4.textContent = 'Semana 4';
-    renderedMonth.appendChild(weekDiv4);
-    semana4.forEach(dia => {
-        let divWeek = document.createElement('div');
-        divWeek.classList.add('week');
-        
-
-        let day = document.createElement('p');
-        day.classList.add('days');
-        day.textContent = `${dia}`
-
-        renderedMonth.appendChild(divWeek);
-        weekDiv4.appendChild(day);
-    });
-
-
-
-    weekDiv5 = document.createElement('div');
-    weekDiv5.textContent = 'Semana 5';
-    renderedMonth.appendChild(weekDiv5);
-    semana5.forEach(dia => {
-        let divWeek = document.createElement('div');
-        divWeek.classList.add('week');
-
-        let day = document.createElement('p');
-        day.classList.add('days');
-        day.textContent = `${dia}`
-
-        renderedMonth.appendChild(divWeek);
-        weekDiv5.appendChild(day);
-    });
-}
-
+    weekDiv5.appendChild(day);
+  });
+  // -----------------------------------
+};
 
 /** FUNCTION TO RENDER ALL MONTHS*/
+const renderAllMonths = () => {
+  renderedMonth.innerHTML = "";
 
-/** FUNCTION TO RENDER CURRENT MONTH*/ 
-const currentMonth = () => {
-    const ultimoMes = mesesDeTrabajo[mesesDeTrabajo.length - 1];
-    renderMonths(ultimoMes)};
+  mesesDeTrabajo.forEach((mes) => {
+    renderedMonth.innerHTML += `
+    <div class="month-data">
+        <p>${mes.monthToCreate}</p>
+        <p>Total de operaciones: ${mes.operacionesTotales}</p>
+        <p>Año: ${mes.year}</p>
+    </div>
+    `;
+  });
+};
 
+/** FUNCTION TO RENDER CURRENT MONTH*/
 
-
-/**LISTENER TO SUBMIT FORM ADD MONTH */ 
+/**LISTENER TO SUBMIT FORM ADD MONTH */
 formAddMonth.addEventListener("submit", (e) => {
-    e.preventDefault();
-    createMonth();
-})
+  e.preventDefault();
+  createMonth();
+});
 
-renderMonths(mesesDeTrabajo[0])
+// LISTENERS RENDER MONTHS
+btnRenderAllMonths.addEventListener("click", renderAllMonths);
+btnRenderCurrentMonth.addEventListener("click", renderCurrentMonth);
