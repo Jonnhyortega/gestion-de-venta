@@ -129,6 +129,7 @@ const renderAllMonths = () => {
         <p>Total de operaciones: ${mes.operacionesTotales}</p>
         <p>Año: ${mes.year}</p>
     </div>
+        <p></p>
     `;
   });
 };
