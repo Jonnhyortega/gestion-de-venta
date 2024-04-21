@@ -14,6 +14,7 @@ const renderedMonth = document.getElementById("rendered-month");
 const showMonth = document.getElementById("mostrar-mes");
 const btnRenderAllMonths = document.querySelector("#btn-renderAllMonths");
 const btnRenderCurrentMonth = document.querySelector("#btn-renderCurrentMonth");
+const currentMonthDiv = document.querySelector('#current-month');
 let mesesDeTrabajo = JSON.parse(localStorage.getItem("mesesDeTrabajo")) || [];
 
 /** FUNCTION TO SAVE DATA IN LOCAL STORAGE*/
@@ -52,7 +53,7 @@ const renderCurrentMonth = (lastMonth) => {
   weekDiv1 = document.createElement("div");
   weekDiv1.classList.add(".week");
   weekDiv1.textContent = "Semana 1";
-  renderedMonth.appendChild(weekDiv1);
+  currentMonthDiv.appendChild(weekDiv1);
   semana1.forEach((dia) => {
     let day = document.createElement("p");
     day.classList.add("days");
@@ -66,7 +67,7 @@ const renderCurrentMonth = (lastMonth) => {
   weekDiv2 = document.createElement("div");
   weekDiv2.textContent = "Semana 2";
   weekDiv2.classList.add(".week");
-  renderedMonth.appendChild(weekDiv2);
+  currentMonthDiv.appendChild(weekDiv2);
   semana2.forEach((dia) => {
     let day = document.createElement("p");
     day.classList.add("days");
@@ -80,7 +81,7 @@ const renderCurrentMonth = (lastMonth) => {
   weekDiv3 = document.createElement("div");
   weekDiv3.classList.add(".week");
   weekDiv3.textContent = "Semana 3";
-  renderedMonth.appendChild(weekDiv3);
+  currentMonthDiv.appendChild(weekDiv3);
   semana3.forEach((dia) => {
     let day = document.createElement("p");
     day.classList.add("days");
@@ -94,7 +95,7 @@ const renderCurrentMonth = (lastMonth) => {
   weekDiv4 = document.createElement("div");
   weekDiv4.classList.add(".week");
   weekDiv4.textContent = "Semana 4";
-  renderedMonth.appendChild(weekDiv4);
+  currentMonthDiv.appendChild(weekDiv4);
   semana4.forEach((dia) => {
     let day = document.createElement("p");
     day.classList.add("days");
@@ -107,7 +108,7 @@ const renderCurrentMonth = (lastMonth) => {
   weekDiv5 = document.createElement("div");
   weekDiv5.classList.add(".week");
   weekDiv5.textContent = "Semana 5";
-  renderedMonth.appendChild(weekDiv5);
+  currentMonthDiv.appendChild(weekDiv5);
   semana5.forEach((dia) => {
     let day = document.createElement("p");
     day.classList.add("days");

@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
   // RENDER MONTHS
-  renderAllMonths();
+  renderCurrentMonth();
 });
 
 const overlayAgendarcliente = document.querySelector(
